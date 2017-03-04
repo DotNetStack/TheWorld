@@ -1,4 +1,4 @@
-﻿body{
+﻿/*body{
     font-size:14px;
     font-family:sans-serif; 
     margin:0
@@ -9,8 +9,8 @@ input[type=text],input[type=password],textarea{
 label{
     font-weight:bold;
     display:block;
-}
-#main{
+}*/
+/*#main{
     background-color:#eee;
     padding:4px;
     margin:0;
@@ -22,7 +22,7 @@ label{
     position:fixed;
     bottom:0;
     width:100%
-}
+}*/
 #sidebar{
     background:#2a2c36;
     color:#eee;

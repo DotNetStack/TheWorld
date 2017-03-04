@@ -12,14 +12,19 @@
     main.on("mouseleave", function () {
         main.css("background-color", "");
     });
+    var icon = $("#toggleButton i.fa");
+    var sideBarAndWrapper = $("#sidebar,#wrapper");
     $("#toggleButton").on("click", function () {
-        $("#sidebar,#wrapper").toggleClass("hide-sidebar");
-        if ($("#sidebar,#wrapper").hasClass("hide-sidebar")) {
-            $("#toggleButton").text("show sidebar");
+        // At form load sidebar and wrapper won't be having hide-sidebar class
+        sideBarAndWrapper.toggleClass("hide-sidebar");
+        if (sideBarAndWrapper.hasClass("hide-sidebar")) {
+            icon.removeClass("fa-angle-left");
+            icon.addClass("fa-angle-right");
         }
         else {
-            $("#toggleButton").text("hide sidebar");
-        }
+            icon.removeClass("fa-angle-right");
+            icon.addClass("fa-angle-left");
+        } 
     });
 
 })();
