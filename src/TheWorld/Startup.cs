@@ -16,24 +16,28 @@ namespace TheWorld
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline. aka middleware
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
+            if (env.IsEnvironment("Development"))
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
             
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            app.UseStaticFiles();
+            app.UseMvc(config =>
+            {
+                config.MapRoute(
+                    name : "Default", 
+                    template: "{Controller}/{Action}/{id?}",
+                    defaults:new { Controller ="App", Action="Index"});
+            });
+            
         }
     }
 }
